@@ -1,0 +1,60 @@
+	<div id="box" style="width: 300px; height: 300px; background-color: red"></div>
+	<br>
+	<div>
+	Pilih Warna Box :
+	<select id="color-list">
+		<option value="red" checked>Red</option>
+		<option value="green" checked>Green</option>
+		<option value="blue" checked>Blue</option>
+		<option value="yellow" checked>Yellow</option>
+		<option value="gray" checked>Gray</option>
+	</select> 
+	</div>
+
+	<div>
+	Pilih Ukuran Box :
+	<select id="size-list">
+		<option value="200" checked>200</option>
+		<option value="300" checked>300</option>
+		<option value="400" checked>400</option>
+	</select> 
+	</div>
+
+	<div>
+	Tampilkan Box :
+	<select id="box-show">
+		<option value="show" checked>Show</option>
+		<option value="hide" checked>Hide</option>
+	</select> 
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+	<script>
+		$(document).ready(function(){
+			var box = $("#box");
+			var colorList = $("#color-list") //ganti warna
+			var sizeList = $("#size-list") //ganti ukuran
+			var boxShow = $("#box-show") 	//tampilan box
+
+			//ganti warna
+			colorList.on('change', function(eventSelect){
+				box.css('backgroundColor', eventSelect.target.value);
+			});
+
+			//ganti ukuran
+			sizeList.on('change', function(eventSelect){
+				box.css('width', eventSelect.target.value);
+			});
+
+			//tampilan box
+			boxShow.on('change', function(eventSelect){
+				if (eventSelect.target.value=="show") {
+					box.show()
+				}else{
+					box.hide()
+				}
+			
+			});
+
+		});
+	</script>
